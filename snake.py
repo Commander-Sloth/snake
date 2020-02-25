@@ -171,13 +171,17 @@ def gameLoop():
 				if  event.key == pygame.K_q:
 					pygame.quit()
 				elif  event.key == pygame.K_UP:
-					SNAKE.direction = "Up"
+					if SNAKE.direction != "Down":
+						SNAKE.direction = "Up"
 				elif  event.key == pygame.K_DOWN:
-					SNAKE.direction = "Down"
+					if SNAKE.direction != "Up":
+						SNAKE.direction = "Down"
 				elif  event.key == pygame.K_RIGHT:
-					SNAKE.direction = "Right"
+					if SNAKE.direction != "Left":
+						SNAKE.direction = "Right"
 				elif  event.key == pygame.K_LEFT:
-					SNAKE.direction = "Left"
+					if SNAKE.direction != "Right":
+						SNAKE.direction = "Left"
 
 		# Do not update the images every single frame, however, key events are detected every frame.
 		if timeTracker % 10 == 0:
